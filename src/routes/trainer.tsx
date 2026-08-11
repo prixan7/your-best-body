@@ -73,9 +73,9 @@ function Trainer() {
           <div>
             <img
               src={gym2.url}
-              alt="Training floor at Leo Warriors with cardio machines and free weights"
+              alt="Head Coach Sakthi at Leo Warriors Gym"
               loading="lazy"
-              className="h-96 w-full object-cover"
+              className="h-96 w-full object-cover object-top"
             />
             <blockquote className="mt-4 bg-iron px-7 py-8 text-chalk">
               <p className="font-display text-xl leading-snug">

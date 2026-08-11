@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import gym1 from "@/assets/gym-1.png.asset.json";
-import gym2 from "@/assets/gym-2.png.asset.json";
 import gym3 from "@/assets/gym-3.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -114,21 +113,21 @@ function Home() {
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             <img
               src={gym1.url}
-              alt="Machines and benches on the air-conditioned training floor"
-              loading="lazy"
-              className="h-72 w-full object-cover md:col-span-2"
-            />
-            <img
-              src={gym2.url}
-              alt="Cardio row with treadmills and spin bikes"
+              alt="Treadmills and turf lane on the air-conditioned training floor"
               loading="lazy"
               className="h-72 w-full object-cover"
             />
             <img
               src={gym3.url}
-              alt="Turf lane running through the middle of the gym"
+              alt="Main gym floor with blue neon accent lighting"
               loading="lazy"
-              className="h-72 w-full object-cover md:col-span-3"
+              className="h-72 w-full object-cover"
+            />
+            <img
+              src="/images/gym-4.webp"
+              alt="Free weight plate rack, leg press, and spin bikes"
+              loading="lazy"
+              className="h-72 w-full object-cover"
             />
           </div>
         </section>
