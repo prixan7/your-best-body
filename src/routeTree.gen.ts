@@ -10,11 +10,23 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as TrainerRouteImport } from './routes/trainer'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackagesRoute = PackagesRouteImport.update({
+  id: '/packages',
+  path: '/packages',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TrainerRoute = TrainerRouteImport.update({
@@ -25,27 +37,35 @@ const TrainerRoute = TrainerRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/packages': typeof PackagesRoute
   '/trainer': typeof TrainerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/packages': typeof PackagesRoute
   '/trainer': typeof TrainerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/packages': typeof PackagesRoute
   '/trainer': typeof TrainerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/trainer'
+  fullPaths: '/' | '/contact' | '/packages' | '/trainer'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/trainer'
-  id: '__root__' | '/' | '/trainer'
+  to: '/' | '/contact' | '/packages' | '/trainer'
+  id: '__root__' | '/' | '/contact' | '/packages' | '/trainer'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  PackagesRoute: typeof PackagesRoute
   TrainerRoute: typeof TrainerRoute
 }
 
@@ -56,6 +76,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/packages': {
+      id: '/packages'
+      path: '/packages'
+      fullPath: '/packages'
+      preLoaderRoute: typeof PackagesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/trainer': {
@@ -70,6 +104,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  PackagesRoute: PackagesRoute,
   TrainerRoute: TrainerRoute,
 }
 export const routeTree = rootRouteImport
