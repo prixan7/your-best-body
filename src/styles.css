@@ -25,9 +25,12 @@
 }
 
 @layer base {
+  *:not([data-round]) {
+    border-radius: 0;
+  }
+
   * {
     border-color: color-mix(in oklab, var(--color-plate) 40%, transparent);
-    border-radius: 0 !important;
   }
 
   html {

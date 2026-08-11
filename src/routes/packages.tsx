@@ -79,15 +79,18 @@ function Plate({ size, weight }: { size: number; weight: string }) {
   return (
     <div
       className="relative flex shrink-0 items-center justify-center border-[10px] border-iron bg-iron-2"
+      data-round
       style={{ width: size, height: size, borderRadius: "9999px" }}
       aria-hidden
     >
       <div
         className="absolute border-4 border-olive"
+        data-round
         style={{ inset: 14, borderRadius: "9999px" }}
       />
       <div
         className="absolute border border-plate bg-concrete-dark"
+        data-round
         style={{ inset: size * 0.34, borderRadius: "9999px" }}
       />
       <span className="relative font-mono text-2xl font-bold text-iron">{weight}</span>
